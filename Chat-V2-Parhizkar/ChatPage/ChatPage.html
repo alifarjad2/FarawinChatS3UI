@@ -1,73 +1,82 @@
+<!-- #region WholePage -->
+<!-- #region doc/html -->
+<!-- داک تایپ نشان دهنده وجود یک سند استاندار ورژن پنج اچ تی ام ال هست  -->
 <!DOCTYPE html>
+<!-- این تگ در بر دارنده تمامی محتویات صفحه کد نویسی شده است -->
 <html lang="en">
-
+    <!-- #endregion -->
+    <!-- #region header -->
+<!-- این تگ در بردارنده قوانین و لینک های استفاده شده است -->
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <style>
-        /* width */
-        ::-webkit-scrollbar {
-          width: 20px;
-        }
-        
-        /* Track */
-        ::-webkit-scrollbar-track {
-          box-shadow: inset 0 0 5px grey; 
-          border-radius: 10px;
-        }
-         
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-          background: transparent; 
-          border-radius: 10px;
-        }
-        
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-          background: #fff; 
-        }
-        </style>
     <title>ChatPage-V2</title>
 </head>
-
+<!-- #endregion -->
+<!-- #region body -->
+<!-- این تگ دربردارنده کد های برنامه نویس است و بدنه کد ماست -->
 <body>
+    <!-- #region section1 -->
+    <!-- تگ سکشن برای بخش بندی صفحه است
+    من ازین تگ استفاده کردم تا بخشی بوجود بیاورم و محتویات چت را درون آن پیاده سازی کنم  -->
+    <!-- با استفاده از تیلویند یک سری استایل نظیر ارتفاع به اندازه صفحه دیوایس و چیدمان فلکس را داده ام -->
     <section class="h-screen flex align-middle justify-center" id="Container">
+        <!-- #region menu button -->
+        <!-- تگ باتن برای بوجود آورد یک دکمه است
+        از این تگ استفاده کردم تا دکمه ای برای ظاهر شدن لیست مخاطبان در صفحه های کوچیکتر ایجاد کنم
+         همچنین استایل هایی برای چگونه قرار گیری آن داده ام   -->
         <button class="absolute top-0 left-0 hover:bg-[#34393C] ">
             <i class="fa text-2xl p-1 text-slate-500">&#xf0c9;</i>
         </button>
-
+        <!-- #endregion -->
+        <!-- #region Contact Menu -->
+        <!-- #region search bar -->
+        <!-- تگ دیو برای بخش بندی صفحه است که دارای خواص های مختلفیست
+        در اینجا از آن استفاده کردم تا بخشی را برای لیست مخاطبین جدا سازی کنم -->
         <div id="Contact-menu" class="h-screen bg-[#202329]">
+            <!-- در اینجا اول با دیو بخشی را جدا و به سرچ بار اختصاص داده ام -->
             <div id="search-bar" class="flex justify-center align-middle pt-11 mb-5 pl-2">
+                <!-- تگ اینپوت تگیست برای دریافت یک مقدار از کاربر و استفاده از آن در جاهای مختلف
+                از این تگ استفاده کردم تا قسمتی برای سرچ مخاطب در لیست برای کاربر ایجاد کنم -->
                 <input type="search" placeholder="Search" class="p-3 bg-[#2E333D] border-none rounded-l-lg w-11/12" />
-
+                    <!-- تگ اس وی جی یک نوع تگ برای اضافه کردن ایکون عکس و ابجکت های مشابه است
+                    از آن استفاده کردم تا یک ایکون سرچ را به سرچ بار خودم اضافه کنم -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" class="w-10 bg-[#2E333D] fill-slate-500 rounded-r-lg cursor-pointer">
                     <path
                         d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z" />
                 </svg>
             </div>
-
+            <!-- #endregion -->
+            <!-- #region contact info -->
+            <!-- در اینجا از دیو استفاده کردم تا بخشی را به منوی مخاطبین اختصاص دهم و لیست آن ها را در اینجا نمایش دهم -->
             <div id="Contact-list" class="overflow-scroll h-3/4 overflow-x-hidden cursor-pointer p-2">
+                <!-- این تگ دیو برای نگه داری آواتار سام و قسمتی از پیام در چت آن مخاطب است -->
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
+                    <!-- در اینجا آواتاری برای مخاطب ساخته ام -->
                     <div class="bg-orange-500 w-14 h-14 rounded-lg text-center pt-4" id="avatar">H A</div>
+                    <!-- این قسمت مربوط به محتوای متنی اسم و پیام های اخیر آن مخاطب است -->
                     <div id="contact-info-in-list-text" class="ml-2" >
+                        <!-- تگ مربوط به نمایش دهنده اسم -->
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Hamed</h3>
+                        <!-- تگ مربوط به نمایش دهنده پیام های اخیر در چت مخاطب -->
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
+                    </div>                
+                    <!-- در اینجا چون یک شبیه سازیست چندین مدل با رنگ های مختلف از مخاطبان را ایجاد کردم... -->
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
                     <div class="bg-red-500 w-14 h-14 rounded-lg text-center pt-4" id="avatar">M O</div>
                     <div id="contact-info-in-list-text" class="ml-2" >
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Mohammad</h3>
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
+                    </div>               
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
                     <div class="bg-amber-500 w-14 h-14 rounded-lg text-center pt-4" id="avatar">A L</div>
                     <div id="contact-info-in-list-text" class="ml-2" >
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Ali</h3>
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
+                    </div>               
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
                     <div class="bg-lime-500 w-14 h-14 rounded-lg text-center pt-4" id="avatar">S A</div>
                     <div id="contact-info-in-list-text" class="ml-2" >
@@ -80,44 +89,56 @@
                     <div id="contact-info-in-list-text" class="ml-2" >
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Reza</h3>
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
+                    </div>               
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
                     <div class="bg-cyan-500 w-14 h-14 rounded-lg text-center pt-5" id="avatar">H O</div>
                     <div id="contact-info-in-list-text" class="ml-2" >
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Hosein</h3>
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
+                    </div>               
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
                     <div class="bg-blue-500 w-14 h-14 rounded-lg text-center pt-4" id="avatar">J A</div>
                     <div id="contact-info-in-list-text" class="ml-2" >
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Javad</h3>
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
+                    </div>               
                 <div id="contact-info-in-list" class="flex align-middle hover:bg-[#34393C] rounded-lg p-3">
                     <div class="bg-violet-500 w-14 h-14 rounded-lg text-center pt-4" id="avatar">M O</div>
                     <div id="contact-info-in-list-text" class="ml-2" >
                         <h3 class=" m-0 font-bold text-lg text-slate-300" id="contact-name">Mohsen</h3>
                         <p class="text-slate-300 opacity-50 text-xs">Lorem ipsum dolor sit amet....</p>    
-                    </div>                </div>
-            </div>
+                </div>     
+                          <!-- #endregion -->
         </div>
-
+        <!-- #endregion -->
+        <!-- #region chat -->
+        <!-- #region chat header -->
+        <!-- این بخش که توسط این دیو ساخته شده در بردارنده محتویات صفحه چت نظیر هدر سندر پیام و خود پیام هاست -->
         <div id="chat-container" class="bg-[#202329] h-screen w-11/12 flex flex-col items-start" >
+            <!-- بخش مربوط به هدر چت که دارای اسم مخاطب انتخاب شده است -->
             <div id="chat-header"
                 class="w-11/12 flex justify-between align-middle bg-[#2E333D] p-4 mt-7 mx-auto rounded-lg h-fit">
                 <div>
+                    <!-- اچ وان تگ هدریست که مرورگر را راهنمایی میکند این بخش صفحه مربوط به چه چیزیست و دارای محتوای متنی با یک سری خواص است
+                    در اینجا استفاده کردم تا اسم مخاطب انتخاب شده را نمایش دهد -->
                     <h1 id="chat-header-title" class="font-bold text-lg text-slate-300">Hamed</h1>
                 </div>
             </div>
-
+            <!-- #endregion -->
+            <!-- #region Chat body -->
+            <!-- این بخش پیام های ردو بدل شده است -->
             <div id="chat-body" class="flex justify-center flex-col mx-auto p-4 h-3/4">
+                <!-- یک قسمت در بردارنده آواتار درون چت و یک قسمت در بردارنده متن چت های ردو بدل دشه است -->
                 <div id="chat-avatar" class="flex mt-6 items-end">
+                    <!-- بخش آواتار -->
                     <div id="avatar-2" class="bg-pink-500 w-14 h-14 rounded-lg mr-2 text-center pt-4 cursor-pointer">M R</div>
+                    <!-- بخش محتوای چت شامل ساعت و محتوای متنی چت -->
                     <div id="contact-massage" class="bg-[#34393C] text-justify w-2/4 p-5 rounded-r-lg rounded-tl-lg " >
                         <p class="text-slate-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet quo illo sequi aliquam dolor assumenda, optio doloribus saepe delectus minima.</p>
                         <p class="text-sm opacity-50 text-slate-300 mt-2">7:15</p>
                     </div>    
                 </div>
+                <!-- مانند بالا شبیه ساز یک پیام در چت است -->
                 <div id="chat-avatar" class="flex m-6 items-end justify-end">
                     <div id="contact-massage" class="bg-[#1ca2ef98] text-slate-300 text-justify w-2/4 p-5 rounded-l-lg rounded-tr-lg flex flex-col " >
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet quo illo sequi aliquam dolor assumenda, optio doloribus saepe delectus minima.</p>
@@ -125,13 +146,17 @@
                     </div>    
                     <div id="avatar-2" class="bg-orange-500 w-14 h-14 rounded-lg ml-2 text-center pt-4 cursor-pointer">H A</div>
                 </div>
-    
+                <!-- این بخش شامل یک اینپوت برای نوشتن پیام و رساندن دست مخاطب است -->
             </div>
+            <!-- #endregion -->
             <div id="chat-sender" class="w-full p-3 flex justify-center">
                 <input type="text" placeholder="Type something ... " class="w-11/12 outline-none rounded-lg border-none bg-[#2E333D]">
             </div>
         </div>
+        <!-- #endregion -->
     </section>
+    <!-- #endregion -->
 </body>
-
+<!-- #endregion -->
 </html>
+<!-- #endregion -->
