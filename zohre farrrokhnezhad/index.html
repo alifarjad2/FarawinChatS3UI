@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Chat Page</title>
+  </head>
+  <body>
+    <div id="app" class="bg-[#202329] min-h-screen flex">
+      <div class="w-1/4">
+        <h1
+          class="text-xl hover:bg-gray-600 text-[#989BA0] bg-[#2E333D] p-3 m-2 rounded-md"
+        >
+          <img
+            src="./img/search.png"
+            class="hover:cursor-pointer p-1 absolute left-1 top-5 w-7"
+            alt="search"
+          />
+          ...Search
+        </h1>
+        <ul>
+          <li
+            v-for="contact in contacts"
+            class="border-b border-gray-300 p-4 hover:bg-gray-600 cursor-pointer"
+          >
+            <div class="flex text-[#989BA0] items-center">
+              <div class="rounded-full h-8 w-8">
+                <img
+                  src="./img/man.png"
+                  class="rounded-full m-1"
+                  alt="avatar"
+                />
+              </div>
+              <div class="ml-2">
+                <h2 class="text-lg">Mr_X</h2>
+                <p class="text-gray-500 text-sm">Hello can you speak?</p>
+              </div>
+            </div>
+          </li>
+          <li
+            v-for="contact in contacts"
+            class="border-b border-gray-300 p-4 hover:bg-gray-600 cursor-pointer"
+          >
+            <div class="flex text-[#989BA0] items-center">
+              <div class="rounded-full h-8 w-8">
+                <img
+                  src="./img/man.png"
+                  class="rounded-full m-1"
+                  alt="avatar"
+                />
+              </div>
+              <div class="ml-2">
+                <h2 class="text-lg">Miss-X</h2>
+                <p class="text-gray-500 text-sm">what you do?</p>
+              </div>
+            </div>
+          </li>
+
+          <li
+            v-for="contact in contacts"
+            class="border-b border-gray-300 p-4 hover:bg-gray-600 cursor-pointer"
+          >
+            <div class="flex text-[#989BA0] items-center">
+              <div class="rounded-full h-8 w-8">
+                <img
+                  src="./img/man.png"
+                  class="rounded-full m-1"
+                  alt="avatar"
+                />
+              </div>
+              <div class="ml-2">
+                <h2 class="text-lg">Miss-y</h2>
+                <p class="text-gray-500 text-sm">How Are You?</p>
+              </div>
+            </div>
+          </li>
+
+          <li
+            v-for="contact in contacts"
+            class="border-b border-gray-300 hover:bg-gray-600 p-4 cursor-pointer"
+          >
+            <div class="flex text-[#989BA0] items-center">
+              <div class="rounded-full h-8 w-8">
+                <img
+                  src="./img/man.png"
+                  class="rounded-full m-1"
+                  alt="avatar"
+                />
+              </div>
+              <div class="ml-2">
+                <h2 class="text-lg">Mr-Z</h2>
+                <p class="text-gray-500 text-sm">Can I see you?</p>
+              </div>
+            </div>
+          </li>
+
+          <li
+            v-for="contact in contacts"
+            class="border-b border-gray-300 p-4 cursor-pointer hover:bg-gray-600"
+          >
+            <div class="flex text-[#989BA0] items-center">
+              <div class="rounded-full h-8 w-8">
+                <img
+                  src="./img/man.png"
+                  class="rounded-full m-1"
+                  alt="avatar"
+                />
+              </div>
+              <div class="ml-2">
+                <h2 class="text-lg">Miss_Z</h2>
+                <p class="text-gray-500 text-sm">have good time</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="w-3/4">
+        <div v-if="selectedContact" class="p-4">
+          <h1 class="text-xl text-[#fff]">Office Chat</h1>
+          <div class="border-b border-gray-300"></div>
+          <div class="py-2">
+            <div
+              v-for="message in selectedContact.messages"
+              class="flex items-start mb-2"
+            >
+              <div class="rounded-full h-8 w-8">
+                <img
+                  src="./img/man.png"
+                  class="rounded-full m-1"
+                  alt="avatar"
+                />
+              </div>
+              <div class="ml-2 flex-1">
+                <div class="rounded-md p-2 bg-gray-300">
+                  <p class="text-sm">hello good morning</p>
+                </div>
+                <p class="text-xs text-gray-500">6:20PM</p>
+              </div>
+            </div>
+
+            <div class="rounded-full h-8 w-8">
+              <img src="./img/man.png" class="rounded-full m-1" alt="avatar" />
+            </div>
+            <div class="ml-3 flex-1">
+              <div class="rounded-md">
+                <img
+                  src="./img/pitza.jpg"
+                  class="h-auto max-w-sm rounded-lg shadow-none transition-shadow duration-300 ease-in-out hover:shadow-lg hover:shadow-black/30"
+                  alt=""
+                />
+              </div>
+              <p class="text-xs text-gray-500">6:20PM</p>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <input
+              v-model="newMessage"
+              type="text"
+              placeholder="Type your message"
+              class="border border-gray-300 rounded-lg p-2 w-full bg-[#2E333D]"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
