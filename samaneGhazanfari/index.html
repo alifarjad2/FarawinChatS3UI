@@ -31,8 +31,8 @@
   <body class="box-border bg-[#34393] h-full">
     <div class="bg-[#4f4e4e] flex w-4/5 h-screen ml-auto mr-auto rounded-lg text-white min-w-fit">
       <div
-      id="contactList"  
-      class="bg-[#4f4e4e] flex flex-col w-[400px] p-1 m-2   max-lg:w-full">
+      id="showContactList"  
+      class="bg-[#4f4e4e] flex flex-col w-[400px] p-1 m-2 max-lg:hidden">
         <div
         class="relative flex flex-row w-10/12 h-10 ml-4 mr-1 border-[#757474] rounded-xl bg-[#757474]">
           <svg
@@ -213,7 +213,7 @@
             alt="menu"
           />
           <svg
-          onclick="showContact()" 
+          id="contactList"
           class="absolute cursor-pointer right-10 top-3"
           xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="23" viewBox="0,0,256,256"
           style="fill:#000000;">
@@ -225,7 +225,7 @@
           chat
         </div>
         <!-- send Message -->
-        <div class="bg-[#4f4e4e] flex relative  flex-row m-2  rounded-lg h-12 overflow-y-auto">
+        <div class="bg-[#4f4e4e] flex relative  flex-row m-2  rounded-lg h-12">
           <img
           class="absolute top-2 h-6 cursor-pointer"
           src="./img/attachment.png" alt="attach" />
@@ -237,5 +237,8 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelector('#contactList').addEventListener('click',()=>{document.querySelector('#showContactList').style.display='block'})
+    </script>
   </body>
 </html>
