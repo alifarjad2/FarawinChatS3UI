@@ -1,37 +1,271 @@
+<!-- comment khat dar khat balatare -->
 <!DOCTYPE html>
+<!-- braye chap chin kardan safhe az dir left to right estefade shode -->
 <html lang="en" dir="ltr">
+  <!-- #region HEADER -->
+  <!-- ba estefade az tag head tanzimat pishfarz va avaliye safhe ro moshakhas mikonim -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>/Chat</title>
+    <!-- dar tag title onvan page ro moshakhas mikonim -->
+    <title>FarawinChatS3UI</title>
+    <!-- az tag style braye css internal estefade mishe ke inja braye taghir style scrollbar haye page estefade shode -->
+    <style>
+      ::-webkit-scrollbar {
+        width: 20px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: rgb(46, 51, 61);
+        border-radius: 20px;
+        border: 6px solid transparent;
+        background-clip: content-box;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: rgb(97, 105, 121);
+      }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-[#dbdbdb] box-border">
-    <div class="h-screen w-screen flex flex-row">
-      <div class="w-1/3 h-screen bg-[rgb(32,35,41)]">
-        <label
-          class="w-25 h-12 ml-4 mr-5 mt-5 mb-5 flex flex-row rounded-lg bg-[rgb(46,51,61)]"
-        >
-          <img src="Assets/icons8-search-48.png" alt="Search" />
+  <!-- #endregion -->
+  <!-- #region BODY -->
+  <body
+    class="box-border bg-[#34393C] w-screen h-screen pl-14 pt-5 pr-14 pb-14 text-white font-mono"
+  >
+    <!-- #container -->
+    <div
+      id="container"
+      class="w-full h-full m-auto mt-5 p-2 rounded-3xl flex flex-row bg-[#202329]"
+    >
+      <!-- #sidebar -->
+      <div class="flex flex-col w-1/3 h-full">
+        <!-- #search -->
+        <div class="h-20 flex flex-row rounded-3xl m-7 bg-[#2E333D]">
+          <img
+            class="w-12 h-12 m-auto cursor-pointer"
+            src="Assets/icons8-search-48.png"
+            alt="Search"
+          />
           <input
+            id="searchContact"
             type="search"
             placeholder="Search"
-            class="w-full h-full pl-1 rounded-lg bg-[rgb(46,51,61)]"
-          />
-        </label>
-        <div>contact</div>
-      </div>
-      <div class="w-2/3 h-screen flex flex-col bg-[rgb(32,35,41)]">
-        <div class="pl-5 w-full h-20">header</div>
-        <div class="pl-5 w-full h-5/6">pv</div>
-        <div class="pl-5 w-full h-14 flex flex-row justify-center">
-          <input
-            placeholder="Your message"
-            type="text"
-            class="w-5/6 h-5/6 rounded-lg bg-[rgb(32,35,41)] pl-5"
+            class="w-5/6 h-5/6 pl-1 mr-2 rounded- bg-inherit m-auto focus:outline-none"
           />
         </div>
+        <!-- #endregion -->
+        <!-- #contact list -->
+        <div
+          id="contactList"
+          class="container custom-scrollbar w-11/12 h-full rounded-2xl m-auto overflow-y-auto"
+        ></div>
+        <!-- #endregion -->
       </div>
+      <!-- #endregion -->
+      <!-- #chat view-->
+      <div id="chatView" class="w-2/3 h-full flex flex-col bg-[#202329]">
+        <!-- #header chat -->
+        <div class="pl-5 w-full h-20 flex flex-row justify-between">
+          <!-- profile -->
+          <div id="profile" class="text-2xl pt-10"></div>
+          <img
+            class="w-7 h-7 mt-12 cursor-pointer"
+            src="Assets/icons8-more-50.png"
+            alt="more"
+          />
+        </div>
+        <!-- #endregion -->
+        <!-- #pv -->
+        <div class="pl-5 w-full h-5/6 overflow-auto flex flex-col gap-5">
+          <div
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none"
+          >
+            <div>
+              hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Fugit natus quod Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit.
+            </div>
+            <div class="text-right text-xs">19:30</div>
+          </div>
+          <div
+            class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none"
+          >
+            <!-- <div class="text-left text-s text-[#b9bdc4] ">reza</div> -->
+            <div>
+              hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Fugit natus quod
+            </div>
+            <div class="text-right text-xs text-[#b9bdc4]">19:42</div>
+          </div>
+          <div
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none"
+          >
+            <div>
+              hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Fugit natus quod
+            </div>
+            <div class="text-right text-xs">20:00</div>
+          </div>
+          <!-- <div class="text-left text-s text-[#b9bdc4] ">reza</div> -->
+          <div
+            class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none"
+          >
+            <div>
+              hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Fugit natus quod Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Molestias quod esse dolor voluptate earum
+              soluta. Temporibus molestias assumenda perspiciatis, sequi
+              explicabo, ducimus esse soluta, nesciunt non ut ea voluptatibus?
+              Officiis?
+            </div>
+            <div class="text-right text-xs">20:30</div>
+          </div>
+          <div
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none"
+          >
+            <div>
+              hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Fugit natus quod
+            </div>
+            <div class="text-right text-xs">8m</div>
+          </div>
+        </div>
+        <!-- #endregion -->
+        <!-- #sender -->
+        <div class="w-full h-14">
+          <div class="w-full h-full rounded-3xl flex">
+            <img
+              class="w-8 h-8 ml-8 m-auto cursor-pointer"
+              src="Assets/icons8-attach-48.png"
+              alt="Attach"
+            />
+            <input
+              placeholder="Your message"
+              type="text"
+              class="bg-inherit w-10/12 h-full mr-16 focus:outline-none"
+            />
+          </div>
+        </div>
+        <!-- #endregion -->
+      </div>
+      <!-- #endregion -->
     </div>
+    <!-- #endregion -->
+    <!-- #script -->
+    <!-- az tag script braye neveshtan code js estefade shode -->
+    <script>
+      // list farzi az mokhatabin (shabih sazi server )
+      const contact = [
+        { name: "ali", phone: "1" },
+        { name: "reza", phone: "2" },
+        { name: "arash", phone: "3" },
+        { name: "maman", phone: "4" },
+        { name: "uni", phone: "5" },
+        { name: "ahmad klc", phone: "6" },
+        { name: "mohsen bina", phone: "7" },
+        { name: "sina kk", phone: "8" },
+        { name: "Elham", phone: "9" },
+        { name: "zz", phone: "10" },
+        { name: "hamed n", phone: "11" },
+        { name: "gg", phone: "12" },
+        { name: "mina arbabi", phone: "13" },
+      ];
+
+      const contactList = document.getElementById("contactList");
+
+      // ye function bra tolid rang random braye estefade dar bg contacta
+      function randomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `bg-[rgb(${r},${g},${b})]`;
+      }
+      // dar in shart check mishe age contacti nabud pyam monaseb ro namayesh bede va ghesmat chat page ham hazf kone
+      if (!contact || contact.length === 0) {
+        contactList.innerHTML = "No contacts";
+        contactList.className = " m-auto text-white text-3xl cursor-default";
+        removeElement();
+        // inja braye element hayi ke ghrare hazf konam ye function neveshtam ta tamiz va moratab tar bashe
+        function removeElement() {
+          const chatView = document.getElementById("chatView");
+          const container = document.getElementById("container");
+          const searchContact = document.getElementById("searchContact");
+          container.removeChild(chatView);
+          return;
+        }
+      }
+      // inja yek moteghayer bra event click contactItem sahktim...
+      let selected;
+      // roye araye contact ye halghe zadam ke vorodish hamon contactas
+      // az in halghe bra emal taghirat dar safhe be tor koli estefade shode
+      contact.forEach(function (contacts) {
+        // tozhi in ghesmat dar line 226
+        // be tor koli inja chandta element div bra page injad kardam...
+        const contactItem = document.createElement("div");
+        const contactAvatar = document.createElement("div");
+        const contactName = document.createElement("div");
+        const date = document.createElement("div");
+        const profile = document.getElementById("profile");
+
+        // kar in function tolid saat va daghighe live ta dar ghesmat list contacta dar page neshon bedam
+        function nowTime() {
+          const now = new Date();
+          const hour = now.getHours();
+          // now.getMinutes() ke miyad daghighe ro tolid mikone va ba padStart(2, "0") omadam goftam age khorogi daghighe kamtar az 2 ragham dasht behesh ye 0 ezafe kon.
+          const minute = String(now.getMinutes()).padStart(2, "0");
+          return `${hour}:${minute}`;
+        }
+        // dar inja function hayi ke sakhte budam ro frakhani kardam va dakhel ye moteghayer rikhtam ta rahat tar harja niyaz dashtam azash estefade konam
+        const time = nowTime();
+        const RGB = randomColor();
+
+        // balatar ye div bra har contact tolide kardam be esm contactItem ke khodesh shamel 3 ta div mishe
+        // div date marbot be saati ke bra har contact neshon midame...
+        date.textContent = time;
+        // div contactName marbot be name har contact mishe ke dar page namayesh midam...
+        contactName.textContent = contacts.name;
+        // div contactAvatar bra ye avatare ke aval name har contact ro dakhelesh mirizam ta behesh style bedam...
+        contactAvatar.textContent = contacts.name[0];
+        // ba estefade az appendChild div va mohtavi ke brashon ijad kardaim ro be page ezafe(darj) mikonim.
+        contactItem.appendChild(contactAvatar);
+        contactItem.appendChild(contactName);
+        contactItem.appendChild(date);
+        contactList.appendChild(contactItem);
+        // dar in ghesmat be div hayi ke injad kardim cloass mored nazremon ro ezafe mikonim...
+        // be dalil estefade az tailwind csss dar in page az class ha bra style dehi estefade kardim
+        contactItem.className =
+          "  flex flex-row hover:bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative min-w-0";
+
+        contactAvatar.className =
+          RGB +
+          "  w-16 h-16  rounded-2xl text-center m-auto ml-4 mr-3  p-4 text-xl ";
+
+        contactName.className = "pt-5 text-xl cursor-default ";
+
+        date.className =
+          " absolute right-2 top-6 text-xs text-gray-400 min-w-0";
+
+        // inja roye contactItem ye invent set kardam ke vaghti roye har contact click mishe emal beshe
+        contactItem.addEventListener("click", function () {
+          // inja selected aval meghdar nadre ali age meghadar dashte bahe dige un contact style mored nazar ro nemigire
+          if (selected) {
+            selected.className =
+              "  flex flex-row hover:bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative ";
+          }
+          selected = contactItem;
+          contactItem.className =
+            " flex flex-row bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative ";
+          // dar inja ham name har contact ke rosh click mishe dar header ghesmat chat view neshon mide
+          profile.innerHTML = contactName.textContent;
+        });
+      });
+    </script>
+    <!-- #endregion -->
   </body>
+  <!-- #endregion -->
 </html>
