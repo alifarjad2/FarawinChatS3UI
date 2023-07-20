@@ -8,9 +8,9 @@
   </head>
   <body class="bg-[#34393C] box-border p-4 h-full">
     <div
-      class="flex rounded-xl h-full overflow-hidden bg-[#202329] ml-5 mr-5 text-white"
+      class="flex justify-start rounded-xl h-full overflow-hidden bg-[#202329] ml-5 mr-5 text-white"
     >
-      <div class="overflow-auto m-2 rounded-lg w-[324px] text-center p-2">
+      <div id="drawer-menu" class="overflow-auto m-2 rounded-lg text-center p-2">
         <div
           class="p-3 flex items-center justify-center rounded-2xl bg-[#2E333D] m-3 relative max-sm:hidden"
         >
@@ -33,7 +33,7 @@
           >
             <img
               src="./img/avatar (1).png"
-              class="bg-green-500  rounded-2xl w-14 m-1"
+              class="bg-green-500 rounded-2xl w-14 m-1"
               alt="avatar"
             />
             <div class="flex flex-col ml-2 max-sm:hidden">
@@ -125,9 +125,28 @@
         </div>
       </div>
 
-      <div class="flex flex-col w-2/3 m-1 text-start">
-        <div class="h-8 text-xs p-2 relative">
-          Hamed Abdollahzade
+      <div class="flex flex-col w-full  m-1 text-start">
+        <div class="h-8 flex text-xs p-2 relative">
+          <img
+            src="./img/drawer-menu.png"
+            alt="drawer-menu"
+            class="w-8 cursor-pointer"
+            onclick="
+            drawerMenu()
+            "
+          />
+          <script>
+            function drawerMenu()
+            {
+             switch (document.getElementById('drawer-menu').style.display) {
+              case 'none':document.getElementById('drawer-menu').style.display='';
+                break;
+                case '':document.getElementById('drawer-menu').style.display='none';
+                break;
+             } 
+            }
+          </script>
+          <p class="pl-5">Hamed Abdollahzade</p>
           <img
             class="w-4 absolute right-2 top-2 cursor-pointer"
             src="./img/menu-vertical.png"
