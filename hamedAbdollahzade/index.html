@@ -10,7 +10,10 @@
     <div
       class="flex justify-start rounded-xl h-full overflow-hidden bg-[#202329] ml-5 mr-5 text-white"
     >
-      <div id="drawer-menu" class="overflow-auto m-2 rounded-lg text-center p-2">
+      <div
+        id="drawer-menu"
+        class="overflow-auto m-2 rounded-lg text-center p-2"
+      >
         <div
           class="p-3 flex items-center justify-center rounded-2xl bg-[#2E333D] m-3 relative max-sm:hidden"
         >
@@ -125,8 +128,8 @@
         </div>
       </div>
 
-      <div class="flex flex-col w-full  m-1 text-start">
-        <div class="h-8 flex text-xs p-2 relative">
+      <div class="flex flex-col w-full m-1 text-start">
+        <div class="h-12 flex p-2 relative">
           <img
             src="./img/drawer-menu.png"
             alt="drawer-menu"
@@ -136,39 +139,79 @@
             "
           />
           <script>
-            function drawerMenu()
-            {
-             switch (document.getElementById('drawer-menu').style.display) {
-              case 'none':document.getElementById('drawer-menu').style.display='';
-                break;
-                case '':document.getElementById('drawer-menu').style.display='none';
-                break;
-             } 
+            function drawerMenu() {
+              switch (document.getElementById("drawer-menu").style.display) {
+                case "none":
+                  document.getElementById("drawer-menu").style.display = "";
+                  break;
+                case "":
+                  document.getElementById("drawer-menu").style.display = "none";
+                  break;
+              }
             }
           </script>
           <p class="pl-5">Hamed Abdollahzade</p>
           <img
-            class="w-4 absolute right-2 top-2 cursor-pointer"
+            class="w-6 absolute right-2 top-2 cursor-pointer"
             src="./img/menu-vertical.png"
             alt="menu-vertical"
           />
         </div>
-        <div
-          class="flex flex-col justify-center items-center h-4/5 overflow-y-auto p-2"
-        >
-          There is no message
+        <div class="border h-full overflow-y-auto p-2">
+          
+          <div class=" flex flex-row items-end m-1 p-1">
+            <div
+              class="shrink-0 rounded-lg mr-2 w-[40px] leading-[40px] text-center bg-slate-500"
+            >
+              HA
+            </div>
+            <div
+              class="flex flex-col bg-[#30333C] mb-2 ml-2 rounded-xl p-2 relative"
+            >
+              <img
+                src="./img/pm.png"
+                alt="pm"
+                class="w-5 absolute -left-[8.4px] -bottom-2"
+              />
+              <span class="text-xs ">hamed Abdollahzade</span>
+              <p class="text-start pt-1 pb-1">Lorem ipsum dolor sit amet</p>
+              <span class="text-end text-xs ">20:30</span>
+            </div>
+          </div>
+
+          <div class=" flex flex-row-reverse items-end m-2 p-2">
+            
+            <div
+              class="shrink-0 rounded-lg ml-2 w-[40px] leading-[40px] text-center bg-slate-500"
+            >
+              you
+            </div>
+            <div
+              class="flex flex-col bg-[#6B8AFE] mb-2 mr-2 rounded-xl p-2 relative"
+            >
+              <img
+                src="./img/pm-right.png"
+                alt="pm"
+                class="w-6 absolute -right-[11px] -bottom-[4.4px]"
+              />
+              <span class="text-xs">you</span>
+              <p class="text-left pt-1 pb-1">Lorem ipsum dolor sit amet alias atque fuga, eos, corporis error</p>
+              <span class="text-start text-xs">20:30</span>
+            </div>
+
+          </div>
         </div>
 
-        <div class="h-8 flex flex-row relative">
+        <div class="h-12 flex flex-row relative">
           <img
             src="./img/attachment.png"
             alt="attachment"
-            class="p-1 w-6 absolute left-1 top-1"
+            class="p-1 w-8 absolute left-2 top-2"
           />
           <input
             type="text"
             placeholder="your messege"
-            class="bg-[rgba(17,27,54,0.4)] w-11/12 text-xs pl-8 pb-1 m-1"
+            class="bg-[rgba(17,27,54,0.4)] w-full pl-12 pb-1 mx-1"
           />
         </div>
       </div>
