@@ -35,15 +35,18 @@
   <!-- #endregion -->
   <!-- #region BODY -->
   <body
-    class="box-border bg-[#34393C] w-screen h-screen pl-14 pt-5 pr-14 pb-14 text-white font-mono"
+    class="box-border bg-[#34393C] w-screen h-screen pl-10 pt-5 pr-10 pb-14 text-white font-mono"
   >
     <!-- #container -->
     <div
       id="container"
-      class="w-full h-full m-auto mt-5 p-2 rounded-3xl flex flex-row bg-[#202329]"
+      class="w-full h-full m-auto mt-5 p-2 rounded-3xl flex flex-row bg-[#202329] max-lg:relative"
     >
       <!-- #sidebar -->
-      <div class="flex flex-col w-1/3 h-full">
+      <div
+        id="sidebar"
+        class="flex flex-col w-1/3 h-full max-lg:hidden max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:w-full max-lg:h-full max-lg:bg-[#202329] max-lg:z-10"
+      >
         <!-- #search -->
         <div class="h-20 flex flex-row rounded-3xl m-7 bg-[#2E333D]">
           <img
@@ -57,33 +60,59 @@
             placeholder="Search"
             class="w-5/6 h-5/6 pl-1 mr-2 rounded- bg-inherit m-auto focus:outline-none"
           />
+          <button
+            id="closeMenu"
+            class="lg:hidden p-3 h-full w-60 rounded-3xl flex justify-evenly items-center bg-inherit max-lg:hover:bg-red-600 overflow-hidden"
+          >
+            Colse Sidebar<img
+              class="lg:hidden w-12 h-12"
+              src="Assets/icons8-close-48.png"
+              alt="close sidebar"
+            />
+          </button>
         </div>
         <!-- #endregion -->
         <!-- #contact list -->
         <div
           id="contactList"
-          class="container custom-scrollbar w-11/12 h-full rounded-2xl m-auto overflow-y-auto"
+          class="container custom-scrollbar w-11/12 h-full rounded-2xl m-auto overflow-y-auto overflow-x-hidden"
         ></div>
         <!-- #endregion -->
       </div>
       <!-- #endregion -->
       <!-- #chat view-->
-      <div id="chatView" class="w-2/3 h-full flex flex-col bg-[#202329]">
+      <div
+        id="chatView"
+        class="w-2/3 h-full flex flex-col bg-[#202329] max-lg:w-full"
+      >
         <!-- #header chat -->
-        <div class="pl-5 w-full h-20 flex flex-row justify-between">
+        <div class="pl-5 w-full h-20 flex flex-row justify-between relative">
+          <!-- #button menu -->
+          <button
+            id="openMenu"
+            class="lg:w-0 lg:cursor-pointer absolute left-1 top-1 cursor-pointer"
+          >
+            <img
+              class="w-7 h-9"
+              src="Assets/icons8-menu-50.png"
+              alt="open Menu"
+            />
+          </button>
           <!-- profile -->
-          <div id="profile" class="text-2xl pt-10"></div>
+          <div id="profile" class="text-2xl absolute top-1.5 left-12"></div>
           <img
-            class="w-7 h-7 mt-12 cursor-pointer"
+            class="w-7 h-7 mt-4 mr-4 cursor-pointer absolute right-0"
             src="Assets/icons8-more-50.png"
             alt="more"
           />
         </div>
         <!-- #endregion -->
         <!-- #pv -->
-        <div class="pl-5 w-full h-5/6 overflow-auto flex flex-col gap-5">
+        <div
+          class="pl-5 w-full h-5/6 overflow-y-auto max-lg:overflow-x-hidden flex flex-col gap-5"
+        >
           <div
-            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none"
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded- max-lg:w-2/3 br-none"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -93,7 +122,7 @@
             <div class="text-right text-xs">19:30</div>
           </div>
           <div
-            class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none"
+            class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none max-lg:w-2/3"
           >
             <!-- <div class="text-left text-s text-[#b9bdc4] ">reza</div> -->
             <div>
@@ -103,7 +132,7 @@
             <div class="text-right text-xs text-[#b9bdc4]">19:42</div>
           </div>
           <div
-            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none"
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded- max-lg:w-2/3 br-none"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -113,7 +142,7 @@
           </div>
           <!-- <div class="text-left text-s text-[#b9bdc4] ">reza</div> -->
           <div
-            class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none"
+            class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none max-lg:w-2/3"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -126,7 +155,7 @@
             <div class="text-right text-xs">20:30</div>
           </div>
           <div
-            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none"
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded- max-lg:w-2/3 br-none"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -201,6 +230,18 @@
       }
       // inja yek moteghayer bra event click contactItem sahktim...
       let selected;
+      const openMenu = document.getElementById("openMenu");
+      const sidebar = document.getElementById("sidebar");
+      const chatView = document.getElementById("chatView");
+      const closeMenu = document.getElementById("closeMenu");
+
+      openMenu.addEventListener("click", function () {
+        sidebar.classList.remove("max-lg:hidden");
+        closeMenu.addEventListener("click", function () {
+          sidebar.classList.add("max-lg:hidden");
+        });
+      });
+
       // roye araye contact ye halghe zadam ke vorodish hamon contactas
       // az in halghe bra emal taghirat dar safhe be tor koli estefade shode
       contact.forEach(function (contacts) {
