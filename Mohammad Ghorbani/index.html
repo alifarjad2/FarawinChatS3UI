@@ -35,7 +35,7 @@
   <!-- #endregion -->
   <!-- #region BODY -->
   <body
-    class="box-border bg-[#34393C] w-screen h-screen pl-10 pt-5 pr-10 pb-14 text-white font-mono"
+    class="box-border bg-[#34393C] w-screen h-screen pl-10 pt-5 pr-10 pb-14 text-white font-mono cursor-default"
   >
     <!-- #container -->
     <div
@@ -45,7 +45,7 @@
       <!-- #sidebar -->
       <div
         id="sidebar"
-        class="flex flex-col w-1/3 h-full max-lg:hidden max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:w-full max-lg:h-full max-lg:bg-[#202329] max-lg:z-10"
+        class="flex flex-col w-1/3 h-full max-lg:hidden max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:w-full max-lg:h-full max-lg:bg-[#202329] max-lg:z-10 max-lg:rounded-3xl max-lg:overflow-hidden"
       >
         <!-- #search -->
         <div class="h-20 flex flex-row rounded-3xl m-7 bg-[#2E333D]">
@@ -112,7 +112,7 @@
           class="pl-5 w-full h-5/6 overflow-y-auto max-lg:overflow-x-hidden flex flex-col gap-5"
         >
           <div
-            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded- max-lg:w-2/3 br-none"
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none max-lg:w-2/3"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -121,6 +121,10 @@
             </div>
             <div class="text-right text-xs">19:30</div>
           </div>
+
+          <span class="rounded-full w-32 m-auto text-center text-black bg-white"
+            >10 July</span
+          >
           <div
             class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none max-lg:w-2/3"
           >
@@ -132,7 +136,7 @@
             <div class="text-right text-xs text-[#b9bdc4]">19:42</div>
           </div>
           <div
-            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded- max-lg:w-2/3 br-none"
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none max-lg:w-2/3"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -141,6 +145,7 @@
             <div class="text-right text-xs">20:00</div>
           </div>
           <!-- <div class="text-left text-s text-[#b9bdc4] ">reza</div> -->
+
           <div
             class="mr-3 bg-[#2E333D] rounded-3xl w-1/3 h-auto p-3 rounded-bl-none max-lg:w-2/3"
           >
@@ -154,8 +159,11 @@
             </div>
             <div class="text-right text-xs">20:30</div>
           </div>
+          <span class="rounded-full w-32 text-center m-auto text-black bg-white"
+            >Todey</span
+          >
           <div
-            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded- max-lg:w-2/3 br-none"
+            class="mr-3 bg-[#6b8afe] rounded-3xl w-1/3 h-auto m-auto p-3 rounded-br-none max-lg:w-2/3"
           >
             <div>
               hey gus Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -167,7 +175,7 @@
         <!-- #endregion -->
         <!-- #sender -->
         <div class="w-full h-14">
-          <div class="w-full h-full rounded-3xl flex">
+          <div class="w-full h-full rounded-3xl flex focus-within:bg-[#2E333D]">
             <img
               class="w-8 h-8 ml-8 m-auto cursor-pointer"
               src="Assets/icons8-attach-48.png"
@@ -176,7 +184,7 @@
             <input
               placeholder="Your message"
               type="text"
-              class="bg-inherit w-10/12 h-full mr-16 focus:outline-none"
+              class="bg-inherit w-10/12 h-full mr-16 rounded-2xl focus:outline-none"
             />
           </div>
         </div>
@@ -214,6 +222,11 @@
         const b = Math.floor(Math.random() * 256);
         return `bg-[rgb(${r},${g},${b})]`;
       }
+
+      function ranodmNumber() {
+        return Math.floor(Math.random() * 10 + 1);
+      }
+
       // dar in shart check mishe age contacti nabud pyam monaseb ro namayesh bede va ghesmat chat page ham hazf kone
       if (!contact || contact.length === 0) {
         contactList.innerHTML = "No contacts";
@@ -251,6 +264,9 @@
         const contactAvatar = document.createElement("div");
         const contactName = document.createElement("div");
         const date = document.createElement("div");
+        const lastMessage = document.createElement("div");
+        const unseenMessages = document.createElement("div");
+
         const profile = document.getElementById("profile");
 
         // kar in function tolid saat va daghighe live ta dar ghesmat list contacta dar page neshon bedam
@@ -264,6 +280,10 @@
         // dar inja function hayi ke sakhte budam ro frakhani kardam va dakhel ye moteghayer rikhtam ta rahat tar harja niyaz dashtam azash estefade konam
         const time = nowTime();
         const RGB = randomColor();
+        const unseen = ranodmNumber();
+
+        lastMessage.textContent = "last Message...";
+        unseenMessages.textContent = unseen;
 
         // balatar ye div bra har contact tolide kardam be esm contactItem ke khodesh shamel 3 ta div mishe
         // div date marbot be saati ke bra har contact neshon midame...
@@ -276,20 +296,26 @@
         contactItem.appendChild(contactAvatar);
         contactItem.appendChild(contactName);
         contactItem.appendChild(date);
+        contactItem.appendChild(lastMessage);
+        contactItem.appendChild(unseenMessages);
         contactList.appendChild(contactItem);
         // dar in ghesmat be div hayi ke injad kardim cloass mored nazremon ro ezafe mikonim...
         // be dalil estefade az tailwind csss dar in page az class ha bra style dehi estefade kardim
         contactItem.className =
-          "  flex flex-row hover:bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative min-w-0";
+          "  flex flex-row hover:bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative min-w-0 hover:text-black";
 
         contactAvatar.className =
           RGB +
-          "  w-16 h-16  rounded-2xl text-center m-auto ml-4 mr-3  p-4 text-xl ";
+          " w-16 h-16  rounded-2xl text-center m-auto ml-4 mr-3  p-4 text-xl ";
 
-        contactName.className = "pt-5 text-xl cursor-default ";
+        contactName.className = "pt-5 text-xl cursor-default";
 
         date.className =
           " absolute right-2 top-6 text-xs text-gray-400 min-w-0";
+        lastMessage.className =
+          " absolute left-24 bottom-5 text-xs text-gray-400 min-w-0";
+        unseenMessages.className =
+          " absolute right-4 bottom-5 rounded-full bg-[#6b8afe] text-xs  min-w-0 p-0.4 pl-1 pr-1 ";
 
         // inja roye contactItem ye invent set kardam ke vaghti roye har contact click mishe emal beshe
         contactItem.addEventListener("click", function () {
@@ -297,7 +323,9 @@
           if (selected) {
             selected.className =
               "  flex flex-row hover:bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative ";
+            unseenMessages.classList.add("hidden");
           }
+
           selected = contactItem;
           contactItem.className =
             " flex flex-row bg-[#2E333D] rounded-3xl h-24 w-full m-auto cursor-pointer relative ";
