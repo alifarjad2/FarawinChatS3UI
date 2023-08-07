@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwind chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* عرض اسکرول را مشخص می کنیم */
+        ::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        /* رنگ اون قسمتی که هنور اسکرول نشده */
+        ::-webkit-scrollbar-track {
+            background: #2E333D;
+        }
+
+        /* رنگ اون قسمتی که اسکرو میشه */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(223, 223, 223);
+        }
+
+        /* استایل پلیر */
+        audio::-webkit-media-controls-play-button {
+            background-color: rgb(107, 141, 242);
+            border-radius: 100%;
+            width: 50px;
+            height: 35px;
+            color: aliceblue;
+        }    
+        audio::-webkit-media-controls-enclosure {
+            background-color: #2E333D;
+        }  
+    </style>
+</head>
+
+<!-- box-border کل صفحه در حای مشخص جای می گیرد نه فقطط محتوا -->
+
+<body class="h-full box-border font-sans">
+    <section class="h-full bg-[#34393C]">
+        <div class="container flex h-full justify-center mx-auto">
+            <div class="w-[90%] xl:w-[70%] self-center">
+                <div class="grid grid-cols-3 bg-[#202329] rounded-3xl p-5">
+                    <div id="contactBox" class="col-start-1 col-span-1">
+                        <!-- قسمت سرچ -->
+                        <div class="flex">
+                            <div class="bg-[#2E333D] inline-flex flex w-auto ml-3 mr-1 mx-3  rounded-2xl p-2 ">
+                                <svg class="w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="#989BA0">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                                <input type="search" class="bg-transparent text-[#989BA0] w-full outline-none ml-2"
+                                    placeholder="Search" />
+                            </div>
+                        </div>
+                        <!-- فسمت لیست کانتک ها -->
+                        <div class="listPerson my-4 pr-2 h-[450px] overflow-auto ">
+                        </div>
+                    </div>
+                    <div class="px-3 col-start-2 col-span-2">
+                        <!-- بخش هدر چت -->
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <h3 class="text-lg text-[#e5e6ea] font-bold inline-block ml-2 lg:ml-0 nameSelested">
+                                    Office Chat</h3>
+                            </div>
+                            <img src="./images/three-dots-vertical.png" class="w-5" alt="three-dots-vertical-icon">
+                        </div>
+                        <!-- بخش پیام ها -->
+                        <div class="h-[450px] my-1 pr-2 overflow-auto">
+                            <div class="flex items-end mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#a9d2fe] rounded-2xl">OC</div>
+                                <div class="relative ml-3 text-[#eceff3] bg-[#2E333D] p-3 rounded-2xl" id="about">
+                                    <img src="./images/pm-left.png" class="absolute w-6 bottom-[-9px] left-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm text-[#989BA0]">Office Chat</span>
+                                    <p class="text-sm sm:text-base">were already starting , hurry up ...</p>
+                                    <strong class="block text-end mt-2 text-xs text-[#989BA0]">08:57</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end flex-row-reverse mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#4eab6c] rounded-2xl">MH</div>
+                                <div class="relative mr-3 text-[#eceff3] bg-[#6b8afe] p-3 rounded-2xl">
+                                    <img src="./images/pm-right.png" class="absolute w-6 bottom-[-4px] right-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm ">Mohaddeseh Heydari</span>
+                                    <p class="text-sm sm:text-base ">ok , I will start soon ...</p>
+                                    <strong class="block text-start mt-2 text-xs text-[#eceff3]">09:01</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#a9d2fe] rounded-2xl">OC</div>
+                                <div class="relative ml-3 text-[#eceff3] bg-[#2E333D] p-3 rounded-2xl">
+                                    <img src="./images/pm-left.png" class="absolute w-6 bottom-[-9px] left-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm text-[#989BA0]">Office Chat</span>
+
+                                    <audio id="song" class="block w-[300px]" controls>
+                                        <source src="./Een-o-un Band.mp3" type="audio/mp3">
+                                    </audio>
+
+                                    <strong class="block text-end mt-2 text-xs text-[#989BA0]">09:07</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end flex-row-reverse mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#4eab6c] rounded-2xl">MH</div>
+                                <div class="relative mr-3 text-[#eceff3] bg-[#6b8afe] p-3 rounded-2xl">
+                                    <img src="./images/pm-right.png" class="absolute w-6 bottom-[-4px] right-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm ">Mohaddeseh Heydari</span>
+                                    <p class="text-sm sm:text-base ">ok , I will start soon ...</p>
+                                    <strong class="block text-start mt-2 text-xs text-[#eceff3]">10:00</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#a9d2fe] rounded-2xl">OC</div>
+                                <div class="relative ml-3 text-[#eceff3] bg-[#2E333D] p-3 rounded-2xl">
+                                    <img src="./images/pm-left.png" class="absolute w-6 bottom-[-9px] left-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm text-[#989BA0]">Office Chat</span>
+                                    <p class="text-sm sm:text-base ">were already starting , hurry up ...</p>
+                                    <strong class="block text-end mt-2 text-xs text-[#989BA0]">10:57</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end flex-row-reverse mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#4eab6c] rounded-2xl">MH</div>
+                                <div class="relative mr-3 text-[#eceff3] bg-[#6b8afe] p-3 rounded-2xl">
+                                    <img src="./images/pm-right.png" class="absolute w-6 bottom-[-4px] right-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm ">Mohaddeseh Heydari</span>
+                                    <p class="text-sm sm:text-base ">ok , I will start soon ...</p>
+                                    <strong class="block text-start mt-2 text-xs text-[#eceff3]">11:45</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#a9d2fe] rounded-2xl">OC</div>
+                                <div class="relative ml-3 text-[#eceff3] bg-[#2E333D] p-3 rounded-2xl">
+                                    <img src="./images/pm-left.png" class="absolute w-6 bottom-[-9px] left-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm text-[#989BA0]">Office Chat</span>
+                                    <p class="text-sm sm:text-base ">were already starting , hurry up ...</p>
+                                    <strong class="block text-end mt-2 text-xs text-[#989BA0]">12:30</strong>
+                                </div>
+                            </div>
+                            <div class="flex items-end flex-row-reverse mb-4">
+                                <div class="text-center w-[50px] leading-[50px] bg-[#4eab6c] rounded-2xl">MH</div>
+                                <div class="relative mr-3 text-[#eceff3] bg-[#6b8afe] p-3 rounded-2xl">
+                                    <img src="./images/pm-right.png" class="absolute w-6 bottom-[-4px] right-[-11px]"
+                                        alt="icon">
+                                    <span class="text-sm ">Mohaddeseh Heydari</span>
+                                    <p class="text-sm sm:text-base ">ok , I will start soon ...</p>
+                                    <strong class="block text-start mt-2 text-xs text-[#eceff3]">13:25</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- بخش ارسال پیام -->
+                        <div class="flex w-auto mx-3 rounded-2xl p-2 hover:bg-[#2E333D] focus-within:bg-[#2E333D]">
+                            <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#989BA0">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                            </svg>
+                            <input type="text" class="bg-transparent text-[#989BA0] outline-none ml-2"
+                                placeholder="Your message">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ایجاد رنگ تصادفی در تیلویند
+        const options = {
+            colors: ['green', 'indigo', 'red'],
+            range: [1, 7],// Between 100 and 700,
+            prefix: 'bg' // Can be 'bg', 'text', etc.
+        };
+        class TailwindColor {
+            constructor(options) {
+                const {
+                    colors = [
+                        'gray',
+                        'red',
+                        'yellow',
+                        'green',
+                        'blue',
+                        'indigo',
+                        'purple',
+                        'pink'
+                    ],
+                    range = [
+                        1, 9
+                    ],
+                    prefix = 'bg',
+                } = options || {};
+
+                this.colors = colors;
+                this.range = {
+                    min: range[0],
+                    max: range[1]
+                };
+                this.prefix = prefix;
+
+                this.tempColors = [];
+            }
+
+            pick() {
+                const number = this.constructor.random(this.range.min, this.range.max) * 100;
+                const indexColor = this.constructor.random(0, this.colors.length - 1);
+                return `${this.prefix}-${this.colors[indexColor]}-${number}`;
+            }
+
+            color(colors = '') {
+                const isArray = Array.isArray(colors);
+                if (!isArray) this.tempColors.push(colors);
+                else colors.forEach(color => this.tempColors.push(color));
+                return this;
+            }
+
+            add() {
+                this.tempColors.forEach(color => this.colors.push(color));
+            }
+
+            remove() {
+                this.tempColors.forEach(color => {
+                    const index = this.colors.indexOf(color);
+                    if (index >= 0) this.colors.splice(index, 1);
+                });
+            }
+
+            static random(min = 1, max = 9) {
+                return Math.floor(Math.random() * max) + min;
+            }
+        }
+        //    با این رنگ را فرا می خوانیم new TailwindColor(options).pick();
+        // Output (example) 'bg-gray-200'
+
+
+        // ایجاد لیست کانتک ها
+        const contacts = [
+            { shortName: "Oc", name: "Office chat", lastTime: "15 m", shortText: "I want to ask you to pick ...", dontRead: "5" },
+            { shortName: "HF", name: "Harry Fettel", lastTime: "5 m", shortText: "Our company needs ...", dontRead: "2" },
+            { shortName: "FG", name: "Ferank Garsia", lastTime: "online", shortText: "Hi hony ...", dontRead: "11" },
+            { shortName: "MG", name: "Maria Golnaiz", lastTime: "30 m", shortText: "What are u ...", dontRead: "8" },
+            { shortName: "TB", name: "Tede Broter", lastTime: "Yesterday", shortText: "your be ?", dontRead: "6" },
+            { shortName: "HF", name: "Harry Fettel", lastTime: "1 m", shortText: "Our company needs to prepare", dontRead: "33" },
+            { shortName: "HF", name: "Harry Fettel", lastTime: "1 day", shortText: "wheder in cold ..", dontRead: "0" }
+        ];
+        for (const contact of contacts) {
+            document.querySelector(".listPerson").innerHTML += `
+            <div class="flex w-auto p-3 hover:bg-[#2E333D] rounded-2xl cursor-pointer transition ease-in delay-50 hover:-translate-y-1 profile">
+                <div class="text-center w-[70px] leading-[50px] rounded-2xl ${new TailwindColor(options).pick()}">${contact.shortName}</div>
+                <div class="ml-2 w-full">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-[#e5e6ea] nameActive">${contact.name}</h4>
+                        <span class="text-[#989BA0] text-xs">${contact.lastTime}</span>
+                    </div>
+                    <div>
+                        <p class="inline-block text-xs text-[#989BA0]">${contact.shortText}</p>
+                        <span class="rounded-full leading-[8px] p-2 bg-[#7189f8] text-[#e5e6ea] text-sm inline-block ml-3 hidden numberText">
+                            ${contact.dontRead}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            `
+        }
+
+
+        // اکشن لیست کانتک ها
+        let profiles = document.getElementsByClassName("profile");
+        let userSelect = "";
+        //بعد از 1 ثانیه گفتم چک بشه چون 1 ثانیه عموما طول می کشه لیست پر بشه
+        setTimeout(
+            function () {
+                for (let i = 0; i < profiles.length; i++) {
+                    profiles[i].addEventListener("click", function () {
+
+                        if (userSelect != "") {
+                            //کلاس های اکشن یوزرانتخاب شده قبلی برداشته می شود
+                            userSelect.classList.remove("bg-[#2E333D]");
+                            userSelect.classList.remove("mb-2");
+                            userSelect.classList.add("hover:bg-[#2E333D]");
+                            userSelect.querySelector(".numberText").classList.add("hidden");
+                        }
+                        userSelect = profiles[i];
+                        userSelect.classList.remove("hover:bg-[#2E333D]");
+                        userSelect.classList.add("bg-[#2E333D]");
+                        userSelect.classList.add("mb-2");
+                        userSelect.querySelector(".numberText").classList.remove("hidden");
+                        document.querySelector(".nameSelested").innerHTML = userSelect.querySelector('.nameActive').innerHTML;
+                    });
+                }
+            }, 1000);
+    </script>
+
+    
+</body>
+
+</html>
